@@ -17,4 +17,9 @@ export class SidenavListComponent implements OnInit {
     this.closeSidenav.emit();
   }
 
+  logout() {
+    localStorage.removeItem("username");
+    this.onClose();
+  }
+
 }

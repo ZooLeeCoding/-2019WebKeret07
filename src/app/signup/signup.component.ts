@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -8,13 +9,16 @@ import { NgForm } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   submitForm(form: NgForm) {
-    console.log(form);
+    var submittedForm = form.form.value;
+    console.log(form.form.value);
+    localStorage.setItem("username", submittedForm.username);
+    this.router.navigate(["/main"]);
   }
 
 }
