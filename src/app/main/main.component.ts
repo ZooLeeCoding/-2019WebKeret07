@@ -13,6 +13,7 @@ export class MainComponent {
   constructor(private router: Router, private args: ActivatedRoute) {
     this.args.params.subscribe(params => {
       console.log(params);
+      this.title = params["name"];
     })
   }
 
