@@ -4,8 +4,12 @@ import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
+import { AuthServiceService } from './auth-service.service';
+
 const routes: Routes = [
-    {path: 'main', component: MainComponent},
+    {path: '', component: LoginComponent},
+    {path: 'main', component: MainComponent, 
+        canActivate: [AuthServiceService]},
     {path: 'signup', component: SignupComponent},
     {path: 'login', component: LoginComponent},
     {path: '**', component: SignupComponent}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -8,6 +9,12 @@ import { Component } from '@angular/core';
 export class MainComponent {
   title = 'Webfejl04';
   firstOutput: any;
+
+  constructor(private router: Router, private args: ActivatedRoute) {
+    this.args.params.subscribe(params => {
+      console.log(params);
+    })
+  }
 
   handleOutput(event) {
     console.log("megkaptam az outputot", event);

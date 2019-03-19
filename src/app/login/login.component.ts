@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     var submittedForm = form.form.value;
     console.log(form.form.value);
     localStorage.setItem("username", submittedForm.username);
-    this.router.navigate(["/main"]);
+    this.router.navigate(["/main", {name: "myname"}]);
   }
 
 }
